@@ -11,13 +11,13 @@ function AreaBarChart() {
   }
 
   if (isError) {
-    return <span>Error: {error.message}</span>;
+    return <span>Error: {error?.message}</span>;
   }
 
   return (
     <div>
       <Container centerContent alignContent={'center'}>
-        <Chart options={chartOptions?.options} series={chartOptions?.series} width="1200"></Chart>
+        <Chart options={chartOptions.options} series={chartOptions.series} width="1200"></Chart>
       </Container>
     </div>
   );
