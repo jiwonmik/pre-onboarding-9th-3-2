@@ -32,25 +32,36 @@ function useData() {
       stroke: {
         width: [0, 2, 5],
       },
+      colors: ['#008FFB', '#FEAF1A'],
       fill: {
-        opacity: 0.4,
+        opacity: 0.7,
       },
       xaxis: {
-        categories: historicalData.map((data) => data.datetime),
+        categories: historicalData.map((data) =>
+          new Date(data.datetime).toLocaleTimeString('en-US')
+        ),
       },
       yaxis: [
         {
           seriesName: BAR_SERIRES,
           opposite: true,
-
           axisTicks: {
             show: true,
           },
           axisBorder: {
             show: true,
+            color: '#008FFB',
           },
           title: {
             text: BAR_SERIRES,
+            style: {
+              color: '#008FFB',
+            },
+          },
+          labels: {
+            style: {
+              colors: ['#008FFB'],
+            },
           },
         },
         {
@@ -60,9 +71,18 @@ function useData() {
           },
           axisBorder: {
             show: true,
+            color: '#FEAF1A',
           },
           title: {
             text: AREA_SERIES,
+            style: {
+              color: '#FEAF1A',
+            },
+          },
+          labels: {
+            style: {
+              colors: ['#FEAF1A'],
+            },
           },
         },
       ],
