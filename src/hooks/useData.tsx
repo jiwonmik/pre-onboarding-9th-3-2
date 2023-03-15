@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query';
-import { IChart, IHistoricalData } from '../components/types';
+import { IChart, IHistoricalData } from '../types/types';
 import { fetchData } from '../api/api';
+import { AREA_SERIES, AREA_TYPE, BAR_SERIRES, BAR_TYPE } from '../consts/chart.const';
 
 function useData() {
   const { isLoading, isError, data, error } = useQuery<IChart, Error>('flexsys', fetchData);
@@ -39,7 +40,7 @@ function useData() {
       },
       yaxis: [
         {
-          seriesName: 'Bar',
+          seriesName: BAR_SERIRES,
           opposite: true,
 
           axisTicks: {
@@ -49,11 +50,11 @@ function useData() {
             show: true,
           },
           title: {
-            text: 'Bar',
+            text: BAR_SERIRES,
           },
         },
         {
-          seriesName: 'Area',
+          seriesName: AREA_SERIES,
           axisTicks: {
             show: true,
           },
@@ -61,21 +62,21 @@ function useData() {
             show: true,
           },
           title: {
-            text: 'Area',
+            text: AREA_SERIES,
           },
         },
       ],
     },
     series: [
       {
-        name: 'Bar',
+        name: BAR_SERIRES,
         data: historicalData.map((data) => data.value_bar),
-        type: 'bar',
+        type: BAR_TYPE,
       },
       {
-        name: 'Area',
+        name: AREA_SERIES,
         data: historicalData.map((data) => data.value_area),
-        type: 'area',
+        type: AREA_TYPE,
       },
     ],
   };
