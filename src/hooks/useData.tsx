@@ -19,10 +19,14 @@ function useData() {
     options: {
       chart: {
         id: 'flexsys',
-        // toolbar: {
-        //   show: false,
-        // },
+        toolbar: {
+          tools: {
+            download: false,
+            pan: false,
+          },
+        },
       },
+
       title: {
         text: 'Flexsys',
       },
@@ -30,9 +34,9 @@ function useData() {
         enabled: false,
       },
       stroke: {
-        width: [0, 2, 5],
+        width: [0, 2],
       },
-      colors: ['#008FFB', '#FEAF1A'],
+      colors: ['#e58e26', '#0c2461'],
       fill: {
         opacity: 0.7,
       },
@@ -50,18 +54,9 @@ function useData() {
           },
           axisBorder: {
             show: true,
-            color: '#008FFB',
           },
           title: {
             text: BAR_SERIRES,
-            style: {
-              color: '#008FFB',
-            },
-          },
-          labels: {
-            style: {
-              colors: ['#008FFB'],
-            },
           },
         },
         {
@@ -71,18 +66,9 @@ function useData() {
           },
           axisBorder: {
             show: true,
-            color: '#FEAF1A',
           },
           title: {
             text: AREA_SERIES,
-            style: {
-              color: '#FEAF1A',
-            },
-          },
-          labels: {
-            style: {
-              colors: ['#FEAF1A'],
-            },
           },
         },
       ],
